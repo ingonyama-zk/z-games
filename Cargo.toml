@@ -1,0 +1,83 @@
+[package]
+name = "zprover"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "zprover"
+path = "src/main.rs"
+
+
+[dependencies.snarkvm-console]
+path = "snarkVM/console"
+
+[dependencies.snarkvm-synthesizer]
+path = "snarkVM/synthesizer"
+features= ["setup"]
+
+[dependencies.snarkvm-console-account]
+path = "snarkVM/console/account"
+
+[dependencies.anyhow]
+version = "1.0.50"
+
+[dependencies.rand]
+version = "0.8"
+
+[dependencies.rayon]
+version = "1"
+
+[dependencies.serde]
+version = "1.0"
+features = ["derive"]
+
+[dependencies.serde_json]
+version = "1.0"
+
+[dependencies.num_cpus]
+version = "1.0"
+
+[dependencies.tokio]
+version = "1"
+features = [
+    "io-util",
+    "macros",
+    "net",
+    "rt-multi-thread",
+    "signal",
+    "sync",
+    "time"
+]
+
+[dependencies.tracing-subscriber]
+version = "0.3"
+features = ["env-filter", "parking_lot"]
+
+[dependencies.log]
+version = "0.4"
+
+[dependencies.crossterm]
+version = "0.22"
+
+[dependencies.futures]
+version = "0.3"
+
+[dependencies]
+tokio-rayon = "2.1.0"
+clap = {version = "4", features = ["derive"]}
+url = "2.3"
+tokio-tungstenite = { version = "0.17", features = ["native-tls"] }
+async-channel = "1.8.0"
+procfs = "0.14"
+uname = "0.1"
+machineid-rs = "1.2"
+
+rand_chacha = "0.3"
+hex = "0.4"
+rustacuda = "0.1"
+
+[features]
+default = [
+  "snarkvm-console/default"
+]
+
